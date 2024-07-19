@@ -22,7 +22,7 @@ rootfs_path="./openwrt"
 fwdriver_path="./core/root/lib"
 
 # Kernel & Firmware Repository
-repos="https://github.com/armarchindo/ULO-repository"
+repos="https://github.com/atdx/ULO-repository"
 
 die() {
     echo -e "${red}ERROR..${normal} = $1"
