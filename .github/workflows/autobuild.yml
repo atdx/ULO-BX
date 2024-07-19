@@ -18,8 +18,8 @@ jobs:
       contents: write
     strategy:
       matrix:
-        kernel: [4.9.337, 6.1.66, 6.6.6]
-        devices: [s905x, s905x2, s905x3, s905x4]
+        kernel: [6.1.66]
+        devices: [s905x]
     name: ULO Autobuilder
     runs-on: ubuntu-latest
     steps:
@@ -41,7 +41,7 @@ jobs:
           
       - name: Building OpenWrt
         run: |
-          sudo ./ulo -k ${{ matrix.kernel }} -m ${{ matrix.devices }} -s 512
+          sudo ./ulo -k ${{ matrix.kernel }} -m ${{ matrix.devices }} -s 768
           
       - name: Creating Package Artifact
         run: |
@@ -64,7 +64,5 @@ jobs:
           body: |
             ## OpenWRT Release
             Kernel :
-            - 4.9.337
-            - 6.6.6
             - 6.1.66
          
