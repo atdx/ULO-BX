@@ -41,7 +41,7 @@ jobs:
           
       - name: Building OpenWrt
         run: |
-          sudo ./ulo -k ${{ matrix.kernel }} -m ${{ matrix.devices }} -s 768
+          sudo ./ulo -k ${{ matrix.kernel }} -m ${{ matrix.devices }} -s 1024
           
       - name: Creating Package Artifact
         run: |
@@ -64,5 +64,5 @@ jobs:
           body: |
             ## OpenWRT Release
             Kernel :
-            - 6.1.66
+            - 5.4.265
          
