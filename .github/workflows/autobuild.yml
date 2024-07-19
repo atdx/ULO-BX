@@ -18,8 +18,8 @@ jobs:
       contents: write
     strategy:
       matrix:
-        kernel: [5.4.279]
-        devices: [s905x4]
+        kernel: [6.1.31-sun50iw9]
+        devices: [h618]
     name: ULO Autobuilder
     runs-on: ubuntu-latest
     steps:
