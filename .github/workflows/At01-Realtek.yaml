@@ -1,7 +1,7 @@
 #
 # Copyright (C) 2024 nosignals
 #
-name: At01 Ulo Builder
+name: At01 Realtek
 
 on:
   workflow_dispatch:
