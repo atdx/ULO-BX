@@ -1,7 +1,7 @@
 #
 # Copyright (C) 2024 nosignals
 #
-name: ULO Autobuilder
+name: OrangePi Zero 3
 
 on:
   workflow_dispatch:
@@ -64,5 +64,5 @@ jobs:
           body: |
             ## OpenWRT Release
             Kernel :
-            - 6.1.66
+            - 6.1.31-sun50iw9
          
