@@ -77,14 +77,14 @@ download_requirement_files() {
         wget -q -O "${tmp_path}/data.zip" "${repos}/archive/refs/heads/main.zip" --show-progress
         echo -e "Unzipping Kernel & Driver Firmware" | $lolcat -a -d 1
         unzip $tmp_path/data.zip -d $tmp_path
-        cp -rf $tmp_path/ULO-repository-main/kernel ./core/
-        cp -rf $tmp_path/ULO-repository-main/firmware $fwdriver_path/
+        cp -rf $tmp_path/ULO-RX-main/kernel ./core/
+        cp -rf $tmp_path/ULO-RX-main/firmware $fwdriver_path/
         echo -e "Done..." | $lolcat -a -d 10
     else
         echo -e "Unzipping Kernel & Driver Firmware" | $lolcat -a -d 1
         unzip -q $tmp_path/data.zip -d $tmp_path
-        cp -rf $tmp_path/ULO-repository-main/kernel ./core/
-        cp -rf $tmp_path/ULO-repository-main/firmware $fwdriver_path/
+        cp -rf $tmp_path/ULO-RX-main/kernel ./core/
+        cp -rf $tmp_path/ULO-RX-main/firmware $fwdriver_path/
         echo -e "Done..." | $lolcat -a -d 10
     fi
     rm -r $tmp_path
