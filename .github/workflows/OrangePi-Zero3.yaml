@@ -38,6 +38,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: main
+
+      - name: Download rootfs.tar.gz
+        run: curl -L https://atdxcdn.eu.org/0:/ULO/OpenWrt_s905x_23.05.4_Clash-Wall-HG680P-18.07.2024_wifi_on-rootfs.tar.gz -o ./openwrt/reyre-rootfs.tar.gz
           
       - name: Building OpenWrt
         run: |
