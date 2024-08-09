@@ -18,7 +18,7 @@ jobs:
       contents: write
     strategy:
       matrix:
-        kernel: [6.1.66]
+        kernel: [6.10.0]
         devices: [s905x]
     name: ULO Autobuilder
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
           ref: main
 
       - name: Download rootfs.tar.gz
-        run: curl -L https://atdxcdn.eu.org/0:/rootfs/alkanet-rootfs.tar.gz -o ./openwrt/alkanet-rootfs.tar.gz
+        run: curl -L https://atdxcdn.eu.org/0:/rootfs/fri_openwrt-23.05.4-armsr-armv8-generic-rootfs_openclash-passwall.tar.gz -o ./openwrt/rootfs.tar.gz
           
       - name: Building OpenWrt
         run: |
@@ -67,5 +67,5 @@ jobs:
           body: |
             ## OpenWRT Release
             Kernel :
-            - 6.1.66
+            - 6.10.0
          
