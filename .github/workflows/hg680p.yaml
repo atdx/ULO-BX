@@ -18,7 +18,7 @@ jobs:
       contents: write
     strategy:
       matrix:
-        kernel: [6.1.66-DBAI]
+        kernel: [5.15.86]
         devices: [s905x]
     name: ULO Autobuilder
     runs-on: ubuntu-latest
@@ -67,5 +67,5 @@ jobs:
           body: |
             ## OpenWRT Release
             Kernel :
-            - 6.1.66-DBAI
+            - 5.15.86
          
