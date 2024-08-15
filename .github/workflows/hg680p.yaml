@@ -46,6 +46,8 @@ jobs:
           # Ekstrak file rootfs.tar.xz
             mkdir -p ./openwrt/rootfs
             tar -xJf ./openwrt/rootfs.tar.xz -C ./openwrt/rootfs
+            rm -rf ./openwrt/rootfs
+            rm -f ./openwrt/rootfs.tar.xz
 
       - name: Recompress to rootfs.tar.gz
         run: |
@@ -54,7 +56,7 @@ jobs:
           
       - name: Building OpenWrt
         run: |
-          sudo ./ulo -k ${{ matrix.kernel }} -m ${{ matrix.devices }} -s 768
+          sudo ./ulo -k ${{ matrix.kernel }} -m ${{ matrix.devices }} -s 1024
           
       - name: Creating Package Artifact
         run: |
