@@ -46,13 +46,13 @@ jobs:
           # Ekstrak file rootfs.tar.xz
             mkdir -p ./openwrt/rootfs
             tar -xJf ./openwrt/rootfs.tar.xz -C ./openwrt/rootfs
-            rm -rf ./openwrt/rootfs
-            rm -f ./openwrt/rootfs.tar.xz
 
       - name: Recompress to rootfs.tar.gz
         run: |
           # Kompres ulang menjadi rootfs.tar.gz dan simpan di folder /openwrt
           tar -czf ./openwrt/rootfs.tar.gz -C ./openwrt/rootfs . 
+          rm -rf ./openwrt/rootfs
+          rm -f ./openwrt/rootfs.tar.xz
           
       - name: Building OpenWrt
         run: |
