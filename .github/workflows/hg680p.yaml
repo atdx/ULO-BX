@@ -30,7 +30,7 @@ jobs:
         run: |
           docker rmi `docker images -q`
           sudo -E apt-get update
-          sudo -E apt-get -y install lolcat build-essential clang flex bison g++ gawk gcc-multilib g++-multilib gettext git libncurses-dev libssl-dev python3-distutils rsync unzip zlib1g-dev file wget
+          sudo -E apt-get -y install lolcat xz-utils tar build-essential clang flex bison g++ gawk gcc-multilib g++-multilib gettext git libncurses-dev libssl-dev python3-distutils rsync unzip zlib1g-dev file wget
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
                     
@@ -40,7 +40,17 @@ jobs:
           ref: main
 
       - name: Download rootfs.tar.gz
-        run: curl -L https://atdxcdn.eu.org/0:/rootfs/fri_openwrt-23.05.4-armsr-armv8-generic-rootfs_openclash-passwall.tar.gz -o ./openwrt/rootfs.tar.gz
+        run: curl -L https://sgp1lxdmirror01.do.letsbuildthe.cloud/images/kali/current/arm64/default/20240814_17%3A14/rootfs.tar.xz -o ./openwrt/rootfs.tar.xz
+      - name: Extract rootfs.tar.xz
+        run: |
+          # Ekstrak file rootfs.tar.xz
+            mkdir -p ./openwrt/rootfs
+            tar -xJf ./openwrt/rootfs.tar.xz -C ./openwrt/rootfs
+
+      - name: Recompress to rootfs.tar.gz
+        run: |
+          # Kompres ulang menjadi rootfs.tar.gz dan simpan di folder /openwrt
+          tar -czf ./openwrt/rootfs.tar.gz -C ./openwrt/rootfs . 
           
       - name: Building OpenWrt
         run: |
